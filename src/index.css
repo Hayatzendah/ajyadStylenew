@@ -1,0 +1,674 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply font-tajawal bg-white text-black antialiased;
+    direction: rtl;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-cairo font-bold;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  /* Custom scrollbar for webkit browsers */
+  ::-webkit-scrollbar {
+    @apply w-2;
+  }
+
+  ::-webkit-scrollbar-track {
+    background-color: #BFC5CC;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-primary rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-accent;
+  }
+
+  /* Focus styles */
+  *:focus-visible {
+    @apply outline-none ring-2 ring-primary ring-offset-2 ring-offset-white;
+  }
+
+  /* Button transitions */
+  button, a {
+    @apply transition-all duration-300;
+  }
+
+  /* Selection color */
+  ::selection {
+    @apply bg-primary text-white;
+  }
+}
+
+@layer utilities {
+  /* Custom gradient backgrounds */
+  .gradient-primary {
+    background: linear-gradient(135deg, #1F4E8C 0%, #1F4E8C 100%);
+  }
+
+  .gradient-overlay {
+    background: linear-gradient(to top, rgba(28, 28, 28, 0.9) 0%, rgba(28, 28, 28, 0.4) 100%);
+  }
+
+  /* Text gradient */
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary;
+  }
+
+  /* Card hover effect */
+  .card-hover {
+    @apply transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-primary/20;
+  }
+
+  /* Container custom */
+  .container-custom {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  /* Stats Row Collision Animation - Desktop Only */
+  @media (min-width: 1024px) {
+    .stats-card-collision {
+      animation: statsCollision 4s cubic-bezier(0.4, 0.0, 0.2, 1) infinite;
+    }
+
+    .stats-card-1 {
+      animation-delay: 0s;
+    }
+
+    .stats-card-2 {
+      animation-delay: 0.2s;
+    }
+
+    .stats-card-3 {
+      animation-delay: 0.4s;
+    }
+
+    .stats-card-4 {
+      animation-delay: 0.6s;
+    }
+
+    @keyframes statsCollision {
+      0%, 100% {
+        transform: translateX(0) translateY(0) scale(1);
+      }
+      20% {
+        transform: translateX(15px) translateY(-8px) scale(1.05);
+      }
+      40% {
+        transform: translateX(-15px) translateY(8px) scale(1.05);
+      }
+      50% {
+        transform: translateX(0) translateY(0) scale(1.1);
+      }
+      60% {
+        transform: translateX(-12px) translateY(6px) scale(1.05);
+      }
+      80% {
+        transform: translateX(12px) translateY(-6px) scale(1.05);
+      }
+    }
+
+    /* About Preview Animation - Desktop Only */
+    .about-preview-image-initial {
+      opacity: 0;
+      transform: translateX(50px);
+    }
+
+    .about-preview-image {
+      animation: aboutImageSlide 1.2s cubic-bezier(0.4, 0.0, 0.2, 1) forwards;
+    }
+
+    .about-preview-text-initial {
+      opacity: 0;
+      transform: translateX(-50px);
+    }
+
+    .about-preview-text {
+      animation: aboutTextSlide 1.2s cubic-bezier(0.4, 0.0, 0.2, 1) forwards;
+      animation-delay: 0.3s;
+    }
+
+    .about-preview-decorative-initial {
+      opacity: 0;
+      transform: scale(0.8);
+    }
+
+    .about-preview-decorative {
+      animation: aboutDecorativeFade 1.5s cubic-bezier(0.4, 0.0, 0.2, 1) forwards;
+      animation-delay: 0.6s;
+    }
+
+    @keyframes aboutImageSlide {
+      from {
+        opacity: 0;
+        transform: translateX(50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes aboutTextSlide {
+      from {
+        opacity: 0;
+        transform: translateX(-50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes aboutDecorativeFade {
+      from {
+        opacity: 0;
+        transform: scale(0.8);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    /* Why Us Animation - Desktop Only */
+    .why-us-card-initial {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+
+    .why-us-card {
+      animation: whyUsCardSlide 0.8s cubic-bezier(0.4, 0.0, 0.2, 1) forwards;
+    }
+
+    .why-us-card-1 {
+      animation-delay: 0.1s;
+    }
+
+    .why-us-card-2 {
+      animation-delay: 0.2s;
+    }
+
+    .why-us-card-3 {
+      animation-delay: 0.3s;
+    }
+
+    .why-us-card-4 {
+      animation-delay: 0.4s;
+    }
+
+    .why-us-card-5 {
+      animation-delay: 0.5s;
+    }
+
+    .why-us-card-6 {
+      animation-delay: 0.6s;
+    }
+
+    @keyframes whyUsCardSlide {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Quality Workflow Animation - Desktop Only */
+    .quality-step-initial {
+      opacity: 0;
+      transform: translateY(30px) scale(0.9);
+    }
+
+    .quality-step {
+      animation: qualityStepAppear 0.8s cubic-bezier(0.4, 0.0, 0.2, 1) forwards;
+    }
+
+    .quality-step-1 {
+      animation-delay: 0.2s;
+    }
+
+    .quality-step-2 {
+      animation-delay: 0.4s;
+    }
+
+    .quality-step-3 {
+      animation-delay: 0.6s;
+    }
+
+    .quality-line-initial {
+      width: 0;
+    }
+
+    .quality-line {
+      animation: qualityLineDraw 1s cubic-bezier(0.4, 0.0, 0.2, 1) forwards;
+    }
+
+    .quality-line-1 {
+      animation-delay: 0.8s;
+    }
+
+    .quality-line-2 {
+      animation-delay: 1s;
+    }
+
+    .quality-callout-initial {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    .quality-callout {
+      animation: qualityCalloutSlide 0.8s cubic-bezier(0.4, 0.0, 0.2, 1) forwards;
+      animation-delay: 1.2s;
+    }
+
+    @keyframes qualityStepAppear {
+      from {
+        opacity: 0;
+        transform: translateY(30px) scale(0.9);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    @keyframes qualityLineDraw {
+      from {
+        width: 0;
+      }
+      to {
+        width: 100%;
+      }
+    }
+
+    @keyframes qualityCalloutSlide {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* About Page Animations - Desktop Only */
+    .about-story-content-initial {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+
+    .about-story-content {
+      animation: aboutFadeUp 1s cubic-bezier(0.4, 0.0, 0.2, 1) forwards;
+    }
+
+    .about-story-image-initial {
+      opacity: 0;
+      transform: translateX(50px) scale(0.95);
+    }
+
+    .about-story-image {
+      animation: aboutImageReveal 1.2s cubic-bezier(0.4, 0.0, 0.2, 1) forwards;
+      animation-delay: 0.3s;
+    }
+
+    @keyframes aboutImageReveal {
+      from {
+        opacity: 0;
+        transform: translateX(50px) scale(0.95);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+      }
+    }
+
+    .about-field-card-initial {
+      opacity: 0;
+      transform: scale(0.8);
+    }
+
+    .about-field-card {
+      animation: aboutFieldAppear 0.6s cubic-bezier(0.4, 0.0, 0.2, 1) forwards;
+    }
+
+    .about-field-card-1 {
+      animation-delay: 0.1s;
+    }
+
+    .about-field-card-2 {
+      animation-delay: 0.2s;
+    }
+
+    .about-field-card-3 {
+      animation-delay: 0.3s;
+    }
+
+    .about-field-card-4 {
+      animation-delay: 0.4s;
+    }
+
+    .about-why-card-initial {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+
+    .about-why-card {
+      animation: aboutFadeUp 0.8s cubic-bezier(0.4, 0.0, 0.2, 1) forwards;
+    }
+
+    .about-why-card-1 {
+      animation-delay: 0.1s;
+    }
+
+    .about-why-card-2 {
+      animation-delay: 0.2s;
+    }
+
+    .about-why-card-3 {
+      animation-delay: 0.3s;
+    }
+
+    .about-why-card-4 {
+      animation-delay: 0.4s;
+    }
+
+    .about-why-card-5 {
+      animation-delay: 0.5s;
+    }
+
+    .about-why-card-6 {
+      animation-delay: 0.6s;
+    }
+
+    .about-import-card-initial {
+      opacity: 0;
+      transform: translateX(-30px);
+    }
+
+    .about-import-card {
+      animation: aboutImportSlide 0.8s cubic-bezier(0.4, 0.0, 0.2, 1) forwards;
+    }
+
+    .about-import-card-1 {
+      animation-delay: 0.1s;
+    }
+
+    .about-import-card-2 {
+      animation-delay: 0.3s;
+    }
+
+    .about-import-card-3 {
+      animation-delay: 0.5s;
+    }
+
+    .about-pricing-card-initial {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+
+    .about-pricing-card {
+      animation: aboutFadeUp 0.8s cubic-bezier(0.4, 0.0, 0.2, 1) forwards;
+    }
+
+    .about-pricing-card-1 {
+      animation-delay: 0.2s;
+    }
+
+    .about-pricing-card-2 {
+      animation-delay: 0.4s;
+    }
+
+    .about-cta-content-initial {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+
+    .about-cta-content {
+      animation: aboutFadeUp 1s cubic-bezier(0.4, 0.0, 0.2, 1) forwards;
+    }
+
+    @keyframes aboutFadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes aboutFieldAppear {
+      from {
+        opacity: 0;
+        transform: scale(0.8);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    @keyframes aboutImportSlide {
+      from {
+        opacity: 0;
+        transform: translateX(-30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    /* Products Page Animations - Desktop Only */
+    .products-filter-initial {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+
+    .products-filter-animate {
+      animation: productsFadeDown 0.8s cubic-bezier(0.4, 0.0, 0.2, 1) forwards;
+    }
+
+    .products-card-initial {
+      opacity: 0;
+      transform: translateY(40px) scale(0.95);
+    }
+
+    .products-card-animate {
+      animation: productsCardReveal 0.8s cubic-bezier(0.4, 0.0, 0.2, 1) forwards;
+    }
+
+    .products-card-1 {
+      animation-delay: 0.1s;
+    }
+
+    .products-card-2 {
+      animation-delay: 0.2s;
+    }
+
+    .products-card-3 {
+      animation-delay: 0.3s;
+    }
+
+    .products-card-4 {
+      animation-delay: 0.4s;
+    }
+
+    .products-card-5 {
+      animation-delay: 0.5s;
+    }
+
+    .products-card-6 {
+      animation-delay: 0.6s;
+    }
+
+    .products-faq-initial {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+
+    .products-faq-animate {
+      animation: productsFadeUp 1s cubic-bezier(0.4, 0.0, 0.2, 1) forwards;
+    }
+
+    @keyframes productsFadeDown {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes productsCardReveal {
+      from {
+        opacity: 0;
+        transform: translateY(40px) scale(0.95);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    @keyframes productsFadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Contact Page Animations - Desktop Only */
+    .contact-card-initial {
+      opacity: 0;
+      transform: translateY(40px) scale(0.9);
+    }
+
+    .contact-card-animate {
+      animation: contactCardReveal 0.8s cubic-bezier(0.4, 0.0, 0.2, 1) forwards;
+    }
+
+    .contact-card-1 {
+      animation-delay: 0.1s;
+    }
+
+    .contact-card-2 {
+      animation-delay: 0.2s;
+    }
+
+    .contact-card-3 {
+      animation-delay: 0.3s;
+    }
+
+    .contact-map-initial {
+      opacity: 0;
+      transform: translateX(-50px);
+    }
+
+    .contact-map-animate {
+      animation: contactSlideIn 1s cubic-bezier(0.4, 0.0, 0.2, 1) forwards;
+    }
+
+    .contact-form-initial {
+      opacity: 0;
+      transform: translateX(50px);
+    }
+
+    .contact-form-animate {
+      animation: contactSlideInReverse 1s cubic-bezier(0.4, 0.0, 0.2, 1) forwards;
+      animation-delay: 0.2s;
+    }
+
+    .contact-info-card-initial {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+
+    .contact-info-card-animate {
+      animation: contactFadeUp 0.8s cubic-bezier(0.4, 0.0, 0.2, 1) forwards;
+    }
+
+    .contact-info-card-1 {
+      animation-delay: 0.2s;
+    }
+
+    .contact-info-card-2 {
+      animation-delay: 0.4s;
+    }
+
+    .contact-cta-initial {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+
+    .contact-cta-animate {
+      animation: contactFadeUp 1s cubic-bezier(0.4, 0.0, 0.2, 1) forwards;
+    }
+
+    @keyframes contactCardReveal {
+      from {
+        opacity: 0;
+        transform: translateY(40px) scale(0.9);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    @keyframes contactSlideIn {
+      from {
+        opacity: 0;
+        transform: translateX(-50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes contactSlideInReverse {
+      from {
+        opacity: 0;
+        transform: translateX(50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes contactFadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  }
+}
