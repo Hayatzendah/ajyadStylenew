@@ -7,8 +7,10 @@ export default function Footer() {
   const currentYear = new Date().getFullYear()
 
   return (
-    <footer className="bg-black border-t border-mutedGray/20 mt-20">
-      <div className="container-custom py-12">
+    <footer className="relative bg-steel-950 bg-grid mt-20 overflow-hidden">
+      <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-accent to-transparent"></div>
+      <div className="absolute -top-40 start-1/2 w-[40rem] h-80 rounded-full bg-primary/20 blur-3xl pointer-events-none"></div>
+      <div className="container-custom py-16 relative">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
           {/* About */}
           <div>
@@ -23,7 +25,7 @@ export default function Footer() {
                 href="https://www.facebook.com/AgyadSteel/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 bg-mutedGray hover:bg-primary rounded-full flex items-center justify-center text-white transition-colors"
+                className="w-10 h-10 glass hover:bg-primary hover:-translate-y-1 rounded-full flex items-center justify-center text-white transition-all"
                 aria-label={t('footer.social.facebook')}
               >
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -34,7 +36,7 @@ export default function Footer() {
                 href={siteData.social.whatsapp}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 bg-mutedGray hover:bg-primary rounded-full flex items-center justify-center text-white transition-colors"
+                className="w-10 h-10 glass hover:bg-green-600 hover:-translate-y-1 rounded-full flex items-center justify-center text-white transition-all"
                 aria-label={t('footer.social.whatsapp')}
               >
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -54,7 +56,7 @@ export default function Footer() {
                 <li key={item.path}>
                   <Link
                     to={item.path}
-                    className="text-white/80 hover:text-white transition-colors text-sm"
+                    className="text-white/70 hover:text-white hover:ps-2 transition-all text-sm"
                   >
                     {t(`nav.${item.path === '/' ? 'home' : item.path.replace('/', '')}`)}
                   </Link>
@@ -112,7 +114,7 @@ export default function Footer() {
               <li>
                 <a
                   href={`mailto:${siteData.contact.email}`}
-                  className="flex items-center gap-2 text-lightGray hover:text-primary transition-colors break-all"
+                  className="flex items-center gap-2 text-white/70 hover:text-white transition-colors break-all"
                 >
                   <span>✉️</span>
                   <span>{siteData.contact.email}</span>
@@ -123,7 +125,7 @@ export default function Footer() {
         </div>
 
         {/* Copyright */}
-        <div className="mt-12 pt-8 border-t border-mutedGray/20 text-center text-sm text-white/80">
+        <div className="mt-12 pt-8 border-t border-white/10 text-center text-sm text-white/70">
           <p>
             © {currentYear} {t('hero.companyName')}. {t('footer.allRightsReserved')}
           </p>
@@ -133,7 +135,7 @@ export default function Footer() {
               href="https://www.brightc0de.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-primary hover:text-accent transition-colors"
+              className="text-primary-300 hover:text-accent-300 transition-colors"
             >
               {t('footer.brightCode')}
             </a>

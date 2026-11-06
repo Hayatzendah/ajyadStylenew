@@ -26,7 +26,7 @@ export default function Clients() {
       />
 
       {/* Hero Section */}
-      <section className="relative py-20 md:py-32 bg-primary">
+      <section className="page-hero relative py-24 md:py-36">
         <div className="container-custom">
           <div className="max-w-4xl mx-auto text-center">
             <SectionTitle 
@@ -59,7 +59,7 @@ export default function Clients() {
               {clientLogos.map((logo) => (
                 <div
                   key={logo.id}
-                  className="bg-white rounded-lg p-6 flex items-center justify-center border border-mutedGray hover:border-primary transition-all duration-300 hover:shadow-lg hover:shadow-primary/20 h-32"
+                  className="bg-white rounded-3xl p-6 flex items-center justify-center border border-steel-200 hover:border-primary-300 transition-all duration-500 ease-out-expo hover:-translate-y-1.5 hover:shadow-lift h-32"
                 >
                   <img
                     src={logo.src}

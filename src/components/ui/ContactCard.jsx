@@ -3,9 +3,9 @@ import Card from '../common/Card'
 export default function ContactCard({ icon, title, value, href, type = 'link' }) {
   const content = (
     <>
-      <div className="text-5xl mb-4">{icon}</div>
-      <h3 className="text-primary font-cairo font-bold text-xl mb-2">{title}</h3>
-      <p className="text-black text-lg break-all">{value}</p>
+      <div className="w-20 h-20 mx-auto rounded-3xl bg-gradient-to-br from-primary-50 to-primary-100 flex items-center justify-center text-4xl mb-4 transition-transform duration-500 ease-out-expo group-hover:scale-110 group-hover:rotate-6">{icon}</div>
+      <h3 className="text-primary-800 font-cairo font-bold text-xl mb-2">{title}</h3>
+      <p className="text-steel-700 text-lg break-all">{value}</p>
     </>
   )
 
@@ -15,7 +15,7 @@ export default function ContactCard({ icon, title, value, href, type = 'link' })
         href={href}
         target={type === 'maps' ? '_blank' : undefined}
         rel={type === 'maps' ? 'noopener noreferrer' : undefined}
-        className="block"
+        className="block group"
       >
         <Card className="text-center h-full">
           {content}

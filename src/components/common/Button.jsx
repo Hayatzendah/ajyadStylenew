@@ -11,13 +11,13 @@ export default function Button({
   className = '',
   ...props
 }) {
-  const baseStyles = 'inline-flex items-center justify-center gap-2 font-cairo font-bold rounded-lg transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white'
+  const baseStyles = 'btn-shine inline-flex items-center justify-center gap-2 font-cairo font-bold rounded-full transition-all duration-500 ease-out-expo active:scale-95 hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white'
 
   const variants = {
-    primary: 'bg-primary hover:bg-primary/90 text-white shadow-lg shadow-primary/30 hover:shadow-primary/50 focus:ring-primary',
-    secondary: 'bg-accent hover:bg-accent/90 text-white shadow-lg shadow-accent/30 focus:ring-accent',
+    primary: 'bg-gradient-to-br from-primary-500 to-primary-700 text-white shadow-glow-primary shadow-inner-light hover:from-primary-400 hover:to-primary-600 focus:ring-primary-400',
+    secondary: 'bg-gradient-to-br from-accent-500 to-accent-700 text-white shadow-glow-accent shadow-inner-light focus:ring-accent',
     outline: 'bg-transparent border-2 border-primary text-primary hover:bg-primary hover:text-white focus:ring-primary',
-    accent: 'bg-accent hover:bg-accent/90 text-white shadow-lg shadow-accent/30 focus:ring-accent'
+    accent: 'bg-gradient-to-br from-accent-500 to-accent-700 text-white shadow-glow-accent shadow-inner-light hover:from-accent-400 hover:to-accent-600 focus:ring-accent'
   }
 
   const sizes = {

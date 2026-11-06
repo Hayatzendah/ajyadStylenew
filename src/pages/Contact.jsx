@@ -80,7 +80,7 @@ export default function Contact() {
       />
 
       {/* Internal Hero */}
-      <section className="relative py-20 md:py-32 bg-primary overflow-hidden">
+      <section className="page-hero relative py-24 md:py-36 overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-0 left-0 w-96 h-96 bg-white rounded-full -translate-x-1/2 -translate-y-1/2"></div>
           <div className="absolute bottom-0 right-0 w-96 h-96 bg-white rounded-full translate-x-1/2 translate-y-1/2"></div>
@@ -154,7 +154,7 @@ export default function Contact() {
             {/* Map */}
             <div className={visibleSections.mapForm ? 'contact-map-animate' : 'contact-map-initial'}>
               <SectionTitle title={t('contactPage.map.title')} centered={false} />
-              <div className="bg-white rounded-xl overflow-hidden h-96 border border-mutedGray">
+              <div className="bg-white rounded-4xl overflow-hidden h-96 shadow-lift ring-1 ring-steel-200">
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3454.5!2d31.2130833!3d30.0614722!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzDCsDAzJzQxLjMiTiAzMcKwMTInNDcuMSJF!5e0!3m2!1sar!2seg!4v1234567890!5m2!1sar!2seg"
                   width="100%"
@@ -182,8 +182,8 @@ export default function Contact() {
         <div className="container-custom">
           <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-8">
             <div className={visibleSections.info ? 'contact-info-card-animate contact-info-card-1' : 'contact-info-card-initial'}>
-              <div className="bg-white rounded-xl p-8 border border-mutedGray">
-                <h3 className="text-primary font-cairo font-bold text-2xl mb-6">
+              <div className="card-premium p-8">
+                <h3 className="text-primary-800 font-cairo font-bold text-2xl mb-6">
                   {t('contactPage.businessHours.title')}
                 </h3>
                 <div className="space-y-4 text-black">
@@ -200,8 +200,8 @@ export default function Contact() {
             </div>
 
             <div className={visibleSections.info ? 'contact-info-card-animate contact-info-card-2' : 'contact-info-card-initial'}>
-              <div className="bg-white rounded-xl p-8 border border-mutedGray">
-                <h3 className="text-primary font-cairo font-bold text-2xl mb-6">
+              <div className="card-premium p-8">
+                <h3 className="text-primary-800 font-cairo font-bold text-2xl mb-6">
                   {t('contactPage.additionalInfo.title')}
                 </h3>
                 <div className="space-y-4">
@@ -229,7 +229,7 @@ export default function Contact() {
       </section>
 
       {/* Quick Contact CTA */}
-      <section ref={ctaRef} className="py-20 bg-primary">
+      <section ref={ctaRef} className="py-24 section-dark bg-noise">
         <div className={`container-custom text-center ${visibleSections.cta ? 'contact-cta-animate' : 'contact-cta-initial'}`}>
           <h2 className="text-3xl md:text-4xl font-cairo font-bold text-white mb-6">
             {t('contactPage.cta.title')}

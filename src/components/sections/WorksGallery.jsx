@@ -16,7 +16,7 @@ export default function WorksGallery() {
   const { t } = useLanguage()
   
   return (
-    <section className="py-20 bg-white">
+    <section className="py-24 md:py-32 section-light">
       <div className="container-custom">
         <SectionTitle title={t('works.title')} subtitle={t('works.subtitle')} />
 
@@ -25,12 +25,12 @@ export default function WorksGallery() {
           {clientLogos.map((logo) => (
             <div
               key={logo.id}
-              className="bg-white rounded-lg p-6 flex items-center justify-center border border-mutedGray hover:border-primary transition-all duration-300 hover:shadow-lg hover:shadow-primary/20 h-32"
+              className="bg-white rounded-3xl p-6 flex items-center justify-center border border-steel-200 hover:border-primary-300 transition-all duration-500 ease-out-expo hover:-translate-y-1.5 hover:shadow-lift h-32"
             >
               <img
                 src={logo.src}
                 alt={logo.alt}
-                className="max-w-full max-h-full object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
+                className="max-w-full max-h-full object-contain filter grayscale opacity-70 hover:grayscale-0 hover:opacity-100 hover:scale-110 transition-all duration-500"
                 loading="lazy"
               />
             </div>

@@ -21,17 +21,17 @@ export default function Header() {
   return (
     <>
       <header
-        className={`sticky top-0 z-50 transition-all duration-300 ${
+        className={`sticky top-0 z-50 transition-all duration-500 ease-out-expo border-b ${
           isScrolled
-            ? 'bg-primary/95 backdrop-blur-md shadow-lg shadow-black/20'
-            : 'bg-primary'
+            ? 'bg-steel-950/80 backdrop-blur-xl border-white/10 shadow-lg shadow-black/30'
+            : 'bg-gradient-to-b from-steel-950 to-primary-950 border-transparent'
         }`}
       >
         <div className="container-custom">
-          <div className="flex justify-between items-center py-4">
+          <div className={`flex justify-between items-center transition-all duration-500 ${isScrolled ? 'py-1' : 'py-3'}`}>
             {/* Logo */}
             <Link to="/" className="flex items-center gap-3 group">
-              <div className="w-24 h-24 rounded-lg flex items-center justify-center overflow-hidden">
+              <div className="w-20 h-20 rounded-2xl flex items-center justify-center overflow-hidden transition-transform duration-500 ease-out-expo group-hover:scale-105">
                 <img 
                   src="/images/home/ajyallogo.png" 
                   alt={t('hero.companyName')}
@@ -53,10 +53,10 @@ export default function Header() {
               <NavLink
                 to="/"
                 className={({ isActive }) =>
-                  `font-cairo font-semibold transition-colors ${
+                  `link-underline font-cairo font-semibold transition-colors ${
                     isActive
-                      ? 'text-white'
-                      : 'text-white/80 hover:text-white'
+                      ? 'active text-white'
+                      : 'text-white/70 hover:text-white'
                   }`
                 }
               >
@@ -65,10 +65,10 @@ export default function Header() {
               <NavLink
                 to="/about"
                 className={({ isActive }) =>
-                  `font-cairo font-semibold transition-colors ${
+                  `link-underline font-cairo font-semibold transition-colors ${
                     isActive
-                      ? 'text-white'
-                      : 'text-white/80 hover:text-white'
+                      ? 'active text-white'
+                      : 'text-white/70 hover:text-white'
                   }`
                 }
               >
@@ -77,10 +77,10 @@ export default function Header() {
               <NavLink
                 to="/products"
                 className={({ isActive }) =>
-                  `font-cairo font-semibold transition-colors ${
+                  `link-underline font-cairo font-semibold transition-colors ${
                     isActive
-                      ? 'text-white'
-                      : 'text-white/80 hover:text-white'
+                      ? 'active text-white'
+                      : 'text-white/70 hover:text-white'
                   }`
                 }
               >
@@ -89,10 +89,10 @@ export default function Header() {
               <NavLink
                 to="/clients"
                 className={({ isActive }) =>
-                  `font-cairo font-semibold transition-colors ${
+                  `link-underline font-cairo font-semibold transition-colors ${
                     isActive
-                      ? 'text-white'
-                      : 'text-white/80 hover:text-white'
+                      ? 'active text-white'
+                      : 'text-white/70 hover:text-white'
                   }`
                 }
               >
@@ -101,10 +101,10 @@ export default function Header() {
               <NavLink
                 to="/contact"
                 className={({ isActive }) =>
-                  `font-cairo font-semibold transition-colors ${
+                  `link-underline font-cairo font-semibold transition-colors ${
                     isActive
-                      ? 'text-white'
-                      : 'text-white/80 hover:text-white'
+                      ? 'active text-white'
+                      : 'text-white/70 hover:text-white'
                   }`
                 }
               >
@@ -114,15 +114,15 @@ export default function Header() {
 
             {/* Language Switcher & CTA Button */}
             <div className="hidden lg:flex items-center gap-4">
-              <div className="flex items-center gap-2 bg-white/10 rounded-lg p-1" role="group" aria-label="Language switcher">
+              <div className="flex items-center gap-1 glass rounded-full p-1" role="group" aria-label="Language switcher">
                 <button
                   onClick={() => switchLanguage('ar')}
                   aria-label="Switch to Arabic"
                   aria-pressed={language === 'ar'}
                   type="button"
-                  className={`px-3 py-1 rounded-md text-sm font-cairo transition-all ${
+                  className={`px-3 py-1 rounded-full text-sm font-cairo transition-all ${
                     language === 'ar'
-                      ? 'bg-white text-primary'
+                      ? 'bg-white text-primary shadow-soft'
                       : 'text-white/80 hover:text-white'
                   }`}
                 >
@@ -133,9 +133,9 @@ export default function Header() {
                   aria-label="Switch to English"
                   aria-pressed={language === 'en'}
                   type="button"
-                  className={`px-3 py-1 rounded-md text-sm font-cairo transition-all ${
+                  className={`px-3 py-1 rounded-full text-sm font-cairo transition-all ${
                     language === 'en'
-                      ? 'bg-white text-primary'
+                      ? 'bg-white text-primary shadow-soft'
                       : 'text-white/80 hover:text-white'
                   }`}
                 >
@@ -146,9 +146,9 @@ export default function Header() {
                   aria-label="Switch to Chinese"
                   aria-pressed={language === 'zh'}
                   type="button"
-                  className={`px-3 py-1 rounded-md text-sm font-cairo transition-all ${
+                  className={`px-3 py-1 rounded-full text-sm font-cairo transition-all ${
                     language === 'zh'
-                      ? 'bg-white text-primary'
+                      ? 'bg-white text-primary shadow-soft'
                       : 'text-white/80 hover:text-white'
                   }`}
                 >

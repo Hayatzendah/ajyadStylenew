@@ -84,7 +84,7 @@ export default function Products() {
       />
 
       {/* Internal Hero */}
-      <section className="relative py-20 md:py-32 bg-primary overflow-hidden">
+      <section className="page-hero relative py-24 md:py-36 overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-0 left-0 w-96 h-96 bg-white rounded-full -translate-x-1/2 -translate-y-1/2"></div>
           <div className="absolute bottom-0 right-0 w-96 h-96 bg-white rounded-full translate-x-1/2 translate-y-1/2"></div>
@@ -123,7 +123,7 @@ export default function Products() {
       </section>
 
       {/* Quote Request Form */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-24 section-light">
         <div className="container-custom">
           <div className="max-w-4xl mx-auto">
             <SectionTitle title={t('productsPage.quoteTitle')} subtitle={t('productsPage.quoteSubtitle')} />

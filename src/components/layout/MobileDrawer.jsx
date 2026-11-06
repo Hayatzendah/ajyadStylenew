@@ -52,7 +52,7 @@ export default function MobileDrawer({ isOpen, onClose }) {
     <>
       {/* Backdrop */}
       <div
-        className={`fixed inset-0 bg-black/70 backdrop-blur-sm z-50 transition-opacity duration-300 lg:hidden ${
+        className={`fixed inset-0 bg-steel-950/70 backdrop-blur-md z-50 transition-opacity duration-500 lg:hidden ${
           isOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
         }`}
         onClick={onClose}
@@ -64,7 +64,7 @@ export default function MobileDrawer({ isOpen, onClose }) {
         role="dialog"
         aria-modal="true"
         aria-label={t('mobileDrawer.menuLabel')}
-        className={`fixed top-0 right-0 h-full w-80 bg-darkSurface shadow-2xl z-50 transform transition-transform duration-300 lg:hidden ${
+        className={`fixed top-0 right-0 h-full w-80 bg-steel-950/95 backdrop-blur-xl border-s border-white/10 shadow-2xl z-50 transform transition-transform duration-500 ease-out-expo lg:hidden ${
           isOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
@@ -104,10 +104,10 @@ export default function MobileDrawer({ isOpen, onClose }) {
                   to={item.path}
                   onClick={onClose}
                   className={({ isActive }) =>
-                    `font-cairo font-semibold text-lg py-3 px-4 rounded-lg transition-colors ${
+                    `font-cairo font-semibold text-lg py-3 px-4 rounded-2xl transition-all ${
                       isActive
-                        ? 'bg-primary text-white'
-                        : 'text-lightGray hover:bg-primary/10 hover:text-primary'
+                        ? 'bg-gradient-to-br from-primary-500 to-primary-700 text-white shadow-glow-primary'
+                        : 'text-white/70 hover:bg-white/10 hover:text-white hover:translate-x-1'
                     }`
                   }
                 >
@@ -135,7 +135,7 @@ export default function MobileDrawer({ isOpen, onClose }) {
                       onClose()
                     }}
                     aria-label={`Switch to ${lang.name}`}
-                    className="w-full flex items-center gap-3 px-4 py-3 rounded-lg bg-white/10 hover:bg-white/20 text-white/80 hover:text-white transition-all text-right font-cairo"
+                    className="w-full flex items-center gap-3 px-4 py-3 rounded-2xl glass hover:bg-white/20 text-white/80 hover:text-white transition-all text-right font-cairo"
                   >
                     <img 
                       src={lang.flag} 

@@ -85,7 +85,7 @@ export default function About() {
       />
 
       {/* Internal Hero */}
-      <section className="relative py-20 md:py-32 bg-primary overflow-hidden">
+      <section className="page-hero relative py-24 md:py-36 overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-0 left-0 w-96 h-96 bg-white rounded-full -translate-x-1/2 -translate-y-1/2"></div>
           <div className="absolute bottom-0 right-0 w-96 h-96 bg-white rounded-full translate-x-1/2 translate-y-1/2"></div>
@@ -119,7 +119,7 @@ export default function About() {
                 <img 
                   src="/images/home/home.jpeg" 
                   alt={t('aboutPage.story.imageAlt')} 
-                  className="w-full h-auto rounded-xl shadow-lg object-cover"
+                  className="w-full h-auto rounded-4xl shadow-lift ring-1 ring-steel-200 object-cover"
                 />
               </div>
             </div>
@@ -128,7 +128,7 @@ export default function About() {
       </section>
 
       {/* Company Fields */}
-      <section ref={fieldsRef} className="py-20 bg-white">
+      <section ref={fieldsRef} className="py-24 section-light">
         <div className="container-custom">
           <SectionTitle title={t('aboutPage.fields.title')} subtitle={t('aboutPage.fields.subtitle')} />
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 justify-items-center">
@@ -160,15 +160,15 @@ export default function About() {
       </section>
 
       {/* Import Service */}
-      <section ref={importServiceRef} className="py-20 bg-white">
+      <section ref={importServiceRef} className="py-24 section-light">
         <div className="container-custom">
           <SectionTitle title={t('aboutPage.importService.title')} subtitle={t('aboutPage.importService.subtitle')} />
           <div className="max-w-5xl mx-auto space-y-6">
             {t('import.services').map((service, index) => (
               <Card key={index} hover={false} className={visibleSections.importService ? `about-import-card about-import-card-${index + 1}` : 'about-import-card-initial'}>
                 <div className="flex items-start gap-4">
-                  <div className="flex-shrink-0 w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center">
-                    <span className="text-primary font-cairo font-bold text-xl">
+                  <div className="flex-shrink-0 w-12 h-12 rounded-2xl bg-gradient-to-br from-primary-500 to-primary-800 flex items-center justify-center shadow-glow-primary">
+                    <span className="text-white font-cairo font-bold text-xl">
                       {service.number}
                     </span>
                   </div>
@@ -215,7 +215,7 @@ export default function About() {
       </section>
 
       {/* CTA */}
-      <section ref={ctaRef} className="py-20 bg-primary">
+      <section ref={ctaRef} className="py-24 section-dark bg-noise">
         <div className={`container-custom text-center ${visibleSections.cta ? 'about-cta-content' : 'about-cta-content-initial'}`}>
           <h2 className="text-3xl md:text-4xl font-cairo font-bold text-white mb-6">
             {t('aboutPage.cta.title')}

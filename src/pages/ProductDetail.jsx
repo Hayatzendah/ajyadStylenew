@@ -160,13 +160,13 @@ export default function ProductDetail() {
       />
 
       {/* Product Hero */}
-      <section className="relative py-20 md:py-32 bg-primary">
+      <section className="page-hero relative py-24 md:py-36">
         <div className="container-custom">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             {/* Image Gallery */}
             <div className="relative">
               {/* Main Image */}
-              <div className="rounded-2xl overflow-hidden shadow-2xl shadow-primary/20 mb-4">
+              <div className="rounded-4xl overflow-hidden shadow-lift ring-1 ring-white/20 mb-4">
                 <img
                   src={galleryImages[0].src}
                   alt={product.name}
@@ -182,7 +182,7 @@ export default function ProductDetail() {
                   <button
                     key={image.id}
                     onClick={() => setLightboxIndex(index)}
-                    className="relative aspect-square rounded-lg overflow-hidden shadow-lg hover:shadow-2xl hover:shadow-primary/20 transition-all duration-300 group"
+                    className="relative aspect-square rounded-2xl overflow-hidden ring-1 ring-white/20 hover:ring-accent hover:-translate-y-1 transition-all duration-500 ease-out-expo group"
                   >
                     <img
                       src={image.src}
@@ -228,7 +228,7 @@ export default function ProductDetail() {
       <section className="py-20 bg-white">
         <div className="container-custom">
           <SectionTitle title="المواصفات" subtitle="التفاصيل الفنية" />
-          <div className="max-w-4xl mx-auto bg-white rounded-xl overflow-hidden border border-mutedGray">
+          <div className="max-w-4xl mx-auto bg-white rounded-3xl overflow-hidden shadow-soft ring-1 ring-steel-200">
             <ProductSpecs specs={product.specs} />
           </div>
         </div>
@@ -259,7 +259,7 @@ export default function ProductDetail() {
           <div className="container-custom">
             <SectionTitle title="الاختبارات الخاصة بالصاج الملون" subtitle="معايير الجودة والاختبار" />
             <div className="max-w-4xl mx-auto">
-              <div className="bg-white rounded-xl overflow-hidden border border-mutedGray shadow-lg">
+              <div className="bg-white rounded-3xl overflow-hidden ring-1 ring-steel-200 shadow-lift">
                 <img
                   src="/images/home/fe5a8866-1276-4a14-93fb-28e275463341.jpg"
                   alt="الاختبارات الخاصة بالصاج الملون"
@@ -323,9 +323,9 @@ export default function ProductDetail() {
       )}
 
       {/* CTA */}
-      <section className="py-20 bg-primary">
+      <section className="py-24 section-dark bg-noise">
         <div className="container-custom text-center">
-          <div className="max-w-3xl mx-auto bg-primary rounded-2xl p-12">
+          <div className="max-w-3xl mx-auto glass rounded-4xl p-12 shadow-lift">
             <h2 className="text-3xl md:text-4xl font-cairo font-bold text-white mb-6">
               هل أنت مهتم بهذا المنتج؟
             </h2>

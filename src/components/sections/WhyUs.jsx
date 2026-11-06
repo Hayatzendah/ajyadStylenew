@@ -33,18 +33,18 @@ export default function WhyUs() {
   }, [isVisible])
 
   return (
-    <section ref={sectionRef} className="py-20 bg-white">
+    <section ref={sectionRef} className="py-24 md:py-32 section-light">
       <div className="container-custom">
         <SectionTitle title={t('whyUs.title')} subtitle={t('whyUs.subtitle')} />
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {t('whyUs.items').map((item, index) => (
             <Card key={index} className={isVisible ? `why-us-card why-us-card-${index + 1}` : 'why-us-card-initial'}>
-              <div className="text-4xl mb-4">✓</div>
-              <h3 className="text-primary font-cairo font-bold text-xl mb-3">
+              <div className="w-14 h-14 mb-5 rounded-2xl bg-gradient-to-br from-primary-500 to-primary-800 text-white flex items-center justify-center text-2xl shadow-glow-primary">✓</div>
+              <h3 className="text-primary-800 font-cairo font-bold text-xl mb-3">
                 {item.title}
               </h3>
-              <p className="text-black leading-relaxed">
+              <p className="text-steel-600 leading-relaxed">
                 {item.description}
               </p>
             </Card>

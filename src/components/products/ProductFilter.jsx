@@ -17,10 +17,10 @@ export default function ProductFilter({ activeFilter, onFilterChange }) {
         <button
           key={filter.value}
           onClick={() => onFilterChange(filter.value)}
-          className={`px-6 py-2 rounded-full font-cairo font-semibold transition-all ${
+          className={`px-6 py-2.5 rounded-full font-cairo font-semibold transition-all duration-500 ease-out-expo ${
             activeFilter === filter.value
-              ? 'bg-primary text-white shadow-lg shadow-primary/30'
-              : 'bg-white text-black hover:bg-primary/10 border border-mutedGray'
+              ? 'bg-gradient-to-br from-primary-500 to-primary-700 text-white shadow-glow-primary scale-105'
+              : 'bg-white text-steel-700 hover:bg-primary-50 hover:-translate-y-0.5 border border-steel-200'
           }`}
         >
           {filter.label}

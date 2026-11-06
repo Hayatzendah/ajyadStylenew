@@ -106,17 +106,17 @@ export default function ContactSection() {
   }
 
   return (
-    <section className="py-20 bg-white">
+    <section className="py-24 md:py-32 bg-white">
       <div className="container-custom">
         <div className="grid lg:grid-cols-2 gap-12">
           {/* Left Section - About Us & Map */}
           <div>
-            <h2 className="text-3xl md:text-4xl font-cairo font-bold text-primary mb-8">
+            <h2 className="text-3xl md:text-4xl font-cairo font-extrabold text-primary-800 mb-8">
               {t('contact.title')}
             </h2>
 
             {/* Google Map */}
-            <div className="mb-8 rounded-xl overflow-hidden shadow-lg border border-mutedGray">
+            <div className="mb-8 rounded-3xl overflow-hidden shadow-lift ring-1 ring-steel-200">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3454.5!2d31.2130833!3d30.0614722!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzDCsDAzJzQxLjMiTiAzMcKwMTInNDcuMSJF!5e0!3m2!1sar!2seg!4v1234567890!5m2!1sar!2seg"
                 width="100%"
@@ -189,12 +189,11 @@ export default function ContactSection() {
           </div>
 
           {/* Right Section - Contact Form */}
-          <div className="bg-primary rounded-2xl p-8 md:p-12 relative overflow-hidden">
+          <div className="section-dark bg-noise rounded-4xl p-8 md:p-12 relative overflow-hidden ring-1 ring-white/10 shadow-lift">
             {/* Background Pattern */}
-            <div className="absolute inset-0 opacity-10">
-              <div className="absolute top-0 left-0 w-64 h-64 bg-white rounded-full -translate-x-1/2 -translate-y-1/2"></div>
-              <div className="absolute bottom-0 right-0 w-96 h-96 bg-white rounded-full translate-x-1/3 translate-y-1/3"></div>
-            </div>
+            <div className="absolute inset-0 bg-grid opacity-60"></div>
+            <div className="absolute -top-24 -left-24 w-72 h-72 bg-primary-500/40 rounded-full blur-3xl animate-blob"></div>
+            <div className="absolute -bottom-24 -right-24 w-72 h-72 bg-accent/25 rounded-full blur-3xl animate-blob [animation-delay:5s]"></div>
 
             <div className="relative z-10">
               <h2 className="text-3xl md:text-4xl font-cairo font-bold text-white mb-4">

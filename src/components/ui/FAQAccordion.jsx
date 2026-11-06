@@ -12,17 +12,19 @@ export default function FAQAccordion({ faqs }) {
       {faqs.map((faq, index) => (
         <div
           key={index}
-          className="bg-white rounded-lg overflow-hidden border border-mutedGray"
+          className={`bg-white rounded-2xl overflow-hidden border border-steel-200 border-s-4 transition-all duration-500 ease-out-expo ${
+            openIndex === index ? 'border-s-accent shadow-lift' : 'border-s-transparent shadow-soft'
+          }`}
         >
           <button
             onClick={() => toggleFAQ(index)}
-            className="w-full flex justify-between items-center p-6 text-right hover:bg-primary/5 transition-colors"
+            className="w-full flex justify-between items-center p-6 text-right hover:bg-primary-50 transition-colors"
           >
-            <span className="font-cairo font-bold text-primary text-lg flex-1">
+            <span className="font-cairo font-bold text-primary-800 text-lg flex-1">
               {faq.q}
             </span>
             <span
-              className={`text-primary text-2xl transition-transform duration-300 ${
+              className={`text-accent text-2xl transition-transform duration-500 ease-out-expo ${
                 openIndex === index ? 'rotate-45' : ''
               }`}
             >
@@ -31,11 +33,11 @@ export default function FAQAccordion({ faqs }) {
           </button>
 
           <div
-            className={`overflow-hidden transition-all duration-300 ${
+            className={`overflow-hidden transition-all duration-500 ease-out-expo ${
               openIndex === index ? 'max-h-96' : 'max-h-0'
             }`}
           >
-            <div className="p-6 pt-0 text-black leading-relaxed">
+            <div className="p-6 pt-0 text-steel-600 leading-relaxed">
               {faq.a}
             </div>
           </div>

@@ -105,7 +105,7 @@ export default function Hero() {
         <div className="max-w-4xl ml-auto mr-8 md:mr-16 mt-8 md:mt-12 text-right relative">
           {/* White Overlay Slider - يظهر أثناء الانتقال */}
           <div 
-            className="absolute inset-0 bg-white pointer-events-none"
+            className="absolute inset-0 bg-primary-900/40 backdrop-blur-2xl pointer-events-none rounded-3xl"
             style={{
               transform: showWhiteOverlay ? 'translateX(0%)' : 'translateX(100%)',
               transition: showWhiteOverlay 
@@ -118,28 +118,29 @@ export default function Hero() {
           {/* Content Wrapper - يظهر فوق الـ overlay */}
           <div className="relative z-40">
           {/* Badge - Top */}
-          <div className="inline-block bg-primary rounded-lg px-6 py-2 mb-6">
+          <div className="inline-flex items-center gap-2 glass rounded-full px-6 py-2 mb-6 animate-fade-up">
+            <span className="w-2 h-2 rounded-full bg-accent animate-pulse-glow"></span>
             <span className="text-white font-bold text-sm md:text-base">
               {t('hero.experience')}
             </span>
           </div>
 
           {/* H1 - Main Title */}
-          <h1 className="text-4xl md:text-5xl lg:text-7xl font-cairo font-bold text-white mb-6">
+          <h1 className="text-4xl md:text-6xl lg:text-8xl font-cairo font-extrabold text-white mb-6 leading-[1.05] drop-shadow-2xl animate-fade-up [animation-delay:150ms]">
             {t('hero.companyName')}
           </h1>
 
           {/* Description */}
-          <p className="text-lg md:text-xl text-white mb-8 max-w-2xl ml-auto leading-relaxed">
+          <p className="text-lg md:text-xl text-white/85 mb-10 max-w-2xl ml-auto leading-relaxed animate-fade-up [animation-delay:300ms]">
             {t('hero.description')}
           </p>
 
           {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button to="/contact" size="lg" className="bg-primary hover:bg-primary/90 text-white border-none">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-up [animation-delay:450ms]">
+            <Button to="/contact" size="lg" variant="accent" className="border-none">
               {t('hero.contactUs')}
             </Button>
-            <Button to="/products" variant="outline" size="lg" className="bg-transparent border-2 border-primary text-white hover:bg-primary/20">
+            <Button to="/products" variant="outline" size="lg" className="glass border-white/40 text-white hover:bg-white hover:text-primary">
               {t('hero.browseProducts')}
             </Button>
             </div>
@@ -153,10 +154,10 @@ export default function Hero() {
           <button
             key={index}
             onClick={() => setCurrentBanner(index)}
-            className={`w-2 h-2 rounded-full transition-all duration-300 ${
+            className={`h-2 rounded-full transition-all duration-500 ease-out-expo ${
               index === currentBanner
-                ? 'bg-white w-8'
-                : 'bg-white/50 hover:bg-white/75'
+                ? 'bg-accent w-10'
+                : 'bg-white/40 w-2 hover:bg-white/80'
             }`}
             aria-label={`انتقل إلى الصورة ${index + 1}`}
           />
