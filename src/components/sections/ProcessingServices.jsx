@@ -43,7 +43,7 @@ export default function ProcessingServices() {
   ]
 
   return (
-    <section className="py-20 bg-white">
+    <section className="py-24 md:py-32 bg-white">
       <div className="container-custom">
         {services.map((service, index) => (
           <div
@@ -83,24 +83,24 @@ export default function ProcessingServices() {
               <div
                 className={`relative order-1 ${
                   service.imagePosition === 'right' 
-                    ? 'md:order-1 bg-gray-50' 
+                    ? 'md:order-1 bg-steel-50' 
                     : 'md:order-2 bg-white'
                 } flex items-center p-8 md:p-12 overflow-visible`}
               >
                 <div className="w-full z-10 relative">
-                  <h2 className="text-3xl md:text-4xl font-cairo font-bold text-primary mb-4">
+                  <h2 className="text-3xl md:text-4xl font-cairo font-extrabold text-primary-800 mb-4">
                     {service.title}
                   </h2>
-                  <h3 className="text-xl md:text-2xl font-cairo font-semibold text-primary mb-6">
+                  <h3 className="text-xl md:text-2xl font-cairo font-semibold text-accent mb-6">
                     {service.subtitle}
                   </h3>
-                  <p className="text-black text-lg leading-relaxed mb-6">
+                  <p className="text-steel-700 text-lg leading-relaxed mb-6">
                     {service.description}
                   </p>
                   <ul className="space-y-3">
                     {service.points.map((point, idx) => (
-                      <li key={idx} className="flex items-start gap-3 text-black">
-                        <span className="text-primary font-bold mt-1 flex-shrink-0 text-xl">✓</span>
+                      <li key={idx} className="flex items-start gap-3 text-steel-800">
+                        <span className="text-accent font-bold mt-1 flex-shrink-0 text-xl">✓</span>
                         <span className="text-lg leading-relaxed">{point}</span>
                       </li>
                     ))}

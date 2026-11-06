@@ -178,7 +178,7 @@ export default function QuoteRequestForm({ showTitle = true }) {
 
   if (isSubmitted) {
     return (
-      <div className="bg-white rounded-xl p-8 text-center border border-mutedGray">
+      <div className="bg-white rounded-3xl p-8 text-center shadow-lift ring-1 ring-steel-200 animate-scale-in">
         <div className="text-6xl mb-4 text-primary">✓</div>
         <h3 className="text-primary font-cairo font-bold text-2xl mb-2">
           {t('quoteForm.successTitle')}
@@ -191,7 +191,7 @@ export default function QuoteRequestForm({ showTitle = true }) {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="bg-white rounded-xl p-8 border border-mutedGray">
+    <form onSubmit={handleSubmit} className="bg-white rounded-3xl p-8 shadow-lift ring-1 ring-steel-200">
       {/* Title */}
       {showTitle && (
         <h2 className="text-2xl md:text-3xl font-cairo font-bold text-primary text-center mb-8">

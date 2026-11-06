@@ -3,72 +3,197 @@
 @tailwind utilities;
 
 @layer base {
+  :root {
+    --ease: cubic-bezier(.22, 1, .36, 1);
+    --ring: #1F4E8C;
+  }
+
   body {
-    @apply font-tajawal bg-white text-black antialiased;
+    @apply font-tajawal bg-steel-50 text-steel-900 antialiased;
     direction: rtl;
+    text-rendering: optimizeLegibility;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-cairo font-bold;
+    @apply font-cairo font-bold tracking-tight;
+  }
+
+  p {
+    line-height: 1.8;
+  }
+
+  img {
+    @apply select-none;
   }
 
   html {
     scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after {
+      animation-duration: .01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: .01ms !important;
+    }
   }
 }
 
 @layer components {
   /* Custom scrollbar for webkit browsers */
   ::-webkit-scrollbar {
-    @apply w-2;
+    width: 10px;
   }
 
   ::-webkit-scrollbar-track {
-    background-color: #BFC5CC;
+    background-color: #0B1220;
   }
 
   ::-webkit-scrollbar-thumb {
-    @apply bg-primary rounded-full;
+    background: linear-gradient(180deg, #366AB0, #1F4E8C);
+    border-radius: 9999px;
+    border: 2px solid #0B1220;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    @apply bg-accent;
+    background: linear-gradient(180deg, #CE343A, #B51E23);
   }
 
   /* Focus styles */
   *:focus-visible {
-    @apply outline-none ring-2 ring-primary ring-offset-2 ring-offset-white;
+    @apply outline-none ring-2 ring-primary-400 ring-offset-2 ring-offset-white;
   }
 
   /* Button transitions */
   button, a {
-    @apply transition-all duration-300;
+    @apply transition-all duration-300 ease-out-expo;
   }
 
   /* Selection color */
   ::selection {
-    @apply bg-primary text-white;
+    @apply bg-accent text-white;
   }
 }
 
 @layer utilities {
   /* Custom gradient backgrounds */
   .gradient-primary {
-    background: linear-gradient(135deg, #1F4E8C 0%, #1F4E8C 100%);
+    background: linear-gradient(135deg, #366AB0 0%, #1F4E8C 45%, #0F2640 100%);
   }
 
   .gradient-overlay {
-    background: linear-gradient(to top, rgba(28, 28, 28, 0.9) 0%, rgba(28, 28, 28, 0.4) 100%);
+    background:
+      radial-gradient(120% 80% at 80% 20%, rgba(31, 78, 140, 0.35) 0%, transparent 60%),
+      linear-gradient(to top, rgba(11, 18, 32, 0.95) 0%, rgba(11, 18, 32, 0.55) 55%, rgba(11, 18, 32, 0.75) 100%);
   }
 
   /* Text gradient */
   .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary;
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary-300 via-white to-primary-300;
+    background-size: 200% auto;
+    animation: gradient-shift 8s ease infinite;
+  }
+
+  /* Frosted glass */
+  .glass {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(16px) saturate(140%);
+    -webkit-backdrop-filter: blur(16px) saturate(140%);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+  }
+
+  /* Premium card */
+  .card-premium {
+    @apply bg-white rounded-3xl border border-steel-200/70 shadow-soft transition-all duration-500 ease-out-expo;
+  }
+
+  .card-premium:hover {
+    @apply -translate-y-1.5 shadow-lift border-primary-200;
+  }
+
+  /* Section backgrounds */
+  .section-dark {
+    background: radial-gradient(90% 60% at 80% 0%, rgba(31, 78, 140, .35), transparent 60%), #0B1220;
+    color: #fff;
+  }
+
+  .section-light {
+    background: linear-gradient(180deg, #F5F7FA 0%, #fff 100%);
+  }
+
+  /* Blueprint grid + grain textures */
+  .bg-grid {
+    background-image:
+      linear-gradient(rgba(255,255,255,.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,.05) 1px, transparent 1px);
+    background-size: 48px 48px;
+  }
+
+  .bg-noise {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.06'/%3E%3C/svg%3E");
+  }
+
+  /* Button shine sweep */
+  .btn-shine {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+  }
+
+  .btn-shine::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: linear-gradient(110deg, transparent 30%, rgba(255,255,255,.35) 50%, transparent 70%);
+    transform: translateX(-120%);
+    transition: transform .8s var(--ease);
+  }
+
+  .btn-shine:hover::after {
+    transform: translateX(120%);
+  }
+
+  [dir='rtl'] .btn-shine::after {
+    transform: translateX(120%);
+  }
+
+  [dir='rtl'] .btn-shine:hover::after {
+    transform: translateX(-120%);
+  }
+
+  /* Animated underline for nav links */
+  .link-underline {
+    position: relative;
+  }
+
+  .link-underline::after {
+    content: '';
+    position: absolute;
+    inset-inline-start: 0;
+    bottom: -6px;
+    height: 2px;
+    width: 100%;
+    background: linear-gradient(90deg, #B51E23, #5784C7);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform .4s var(--ease);
+    border-radius: 2px;
+  }
+
+  [dir='rtl'] .link-underline::after {
+    transform-origin: right;
+  }
+
+  .link-underline:hover::after,
+  .link-underline.active::after {
+    transform: scaleX(1);
   }
 
   /* Card hover effect */
   .card-hover {
-    @apply transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-primary/20;
+    @apply transition-all duration-500 ease-out-expo hover:-translate-y-1.5 hover:shadow-lift;
   }
 
   /* Container custom */
@@ -76,10 +201,71 @@
     @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
   }
 
+  /* Page hero banner */
+  .page-hero {
+    position: relative;
+    background:
+      radial-gradient(70% 90% at 85% 0%, rgba(54, 106, 176, .45), transparent 60%),
+      radial-gradient(50% 70% at 5% 100%, rgba(181, 30, 35, .22), transparent 60%),
+      #0B1220;
+    color: #fff;
+  }
+
+  .page-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,.05) 1px, transparent 1px);
+    background-size: 48px 48px;
+    mask-image: radial-gradient(ellipse at center, #000 30%, transparent 75%);
+    -webkit-mask-image: radial-gradient(ellipse at center, #000 30%, transparent 75%);
+    pointer-events: none;
+  }
+
+  .page-hero > .container-custom {
+    position: relative;
+  }
+
+  .page-hero h1 {
+    letter-spacing: -0.02em;
+    animation: fade-up .9s var(--ease) both;
+  }
+
+  .page-hero p {
+    animation: fade-up .9s var(--ease) .15s both;
+  }
+
+  /* Gradient titles stay readable on dark sections */
+  .page-hero h2.bg-clip-text,
+  .section-dark h2.bg-clip-text {
+    background-image: linear-gradient(135deg, #fff, #B5CDEC);
+  }
+
+  /* Unified form fields */
+  form input:not([type='checkbox']):not([type='radio']),
+  form textarea,
+  form select {
+    border-radius: 14px;
+    transition: border-color .3s var(--ease), box-shadow .3s var(--ease), transform .3s var(--ease);
+  }
+
+  form input:not([type='checkbox']):not([type='radio']):focus,
+  form textarea:focus,
+  form select:focus {
+    border-color: #366AB0;
+    box-shadow: 0 0 0 4px rgba(54, 106, 176, .22);
+  }
+
+  form button[type='submit'] {
+    border-radius: 9999px;
+  }
+
   /* Stats Row Collision Animation - Desktop Only */
   @media (min-width: 1024px) {
     .stats-card-collision {
-      animation: statsCollision 4s cubic-bezier(0.4, 0.0, 0.2, 1) infinite;
+      animation: statsCollision 6s ease-in-out infinite;
     }
 
     .stats-card-1 {
@@ -100,22 +286,10 @@
 
     @keyframes statsCollision {
       0%, 100% {
-        transform: translateX(0) translateY(0) scale(1);
-      }
-      20% {
-        transform: translateX(15px) translateY(-8px) scale(1.05);
-      }
-      40% {
-        transform: translateX(-15px) translateY(8px) scale(1.05);
+        transform: translateY(0);
       }
       50% {
-        transform: translateX(0) translateY(0) scale(1.1);
-      }
-      60% {
-        transform: translateX(-12px) translateY(6px) scale(1.05);
-      }
-      80% {
-        transform: translateX(12px) translateY(-6px) scale(1.05);
+        transform: translateY(-10px);
       }
     }
 

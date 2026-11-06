@@ -1,9 +1,9 @@
 export default function Card({ children, className = '', hover = true, ...props }) {
-  const hoverClass = hover ? 'hover:scale-105 hover:shadow-xl hover:shadow-primary/20' : ''
+  const hoverClass = hover ? 'hover:-translate-y-1.5 hover:shadow-lift hover:border-primary-200' : ''
 
   return (
     <div
-      className={`bg-white rounded-xl p-6 shadow-lg border border-mutedGray/50 transition-all duration-300 ${hoverClass} ${className}`}
+      className={`bg-white rounded-3xl p-6 shadow-soft border border-steel-200/70 transition-all duration-500 ease-out-expo ${hoverClass} ${className}`}
       {...props}
     >
       {children}

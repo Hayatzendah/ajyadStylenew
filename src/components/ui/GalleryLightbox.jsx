@@ -30,7 +30,7 @@ export default function GalleryLightbox({ images, initialIndex = 0, onClose }) {
 
   return (
     <div
-      className="fixed inset-0 z-50 bg-black/95 flex items-center justify-center"
+      className="fixed inset-0 z-50 bg-steel-950/90 backdrop-blur-xl flex items-center justify-center animate-fade-in"
       onClick={onClose}
     >
       {/* Close Button */}
@@ -45,7 +45,7 @@ export default function GalleryLightbox({ images, initialIndex = 0, onClose }) {
       </button>
 
       {/* Counter */}
-      <div className="absolute top-4 right-4 text-white bg-black/50 px-4 py-2 rounded-full">
+      <div className="absolute top-4 right-4 text-white glass px-4 py-2 rounded-full">
         {currentIndex + 1} / {images.length}
       </div>
 
@@ -80,12 +80,12 @@ export default function GalleryLightbox({ images, initialIndex = 0, onClose }) {
       {/* Image */}
       <div
         onClick={(e) => e.stopPropagation()}
-        className="max-w-6xl max-h-[90vh] mx-4"
+        className="max-w-6xl max-h-[90vh] mx-4 animate-scale-in"
       >
         <img
           src={images[currentIndex].src}
           alt={images[currentIndex].alt}
-          className="max-w-full max-h-[90vh] object-contain rounded-lg"
+          className="max-w-full max-h-[90vh] object-contain rounded-3xl shadow-lift"
         />
       </div>
     </div>

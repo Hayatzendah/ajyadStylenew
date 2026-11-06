@@ -9,7 +9,7 @@ export default function ProductsOverview() {
   const { t } = useLanguage()
   
   return (
-    <section className="py-20 bg-white">
+    <section className="py-24 md:py-32 bg-white">
       <div className="container-custom">
         <SectionTitle title={t('products.title')} subtitle={t('products.subtitle')} />
 
@@ -17,27 +17,27 @@ export default function ProductsOverview() {
           {products.map((product, index) => {
             const translatedProduct = t('products.items')[index]
             return (
-              <Card key={product.id}>
+              <Card key={product.id} className="group overflow-hidden">
                 <Link to={`/products/${product.slug}`} className="block">
-                  <div className="relative rounded-lg overflow-hidden mb-4">
+                  <div className="relative rounded-2xl overflow-hidden mb-4">
                     <img
                       src={product.image}
                       alt={translatedProduct?.name || product.name}
-                      className="w-full h-48 object-cover"
+                      className="w-full h-48 object-cover transition-transform duration-[900ms] ease-out-expo group-hover:scale-110"
                       loading="lazy"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent"></div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-steel-950/80 via-transparent to-transparent opacity-70 group-hover:opacity-100 transition-opacity duration-500"></div>
                   </div>
-                  <h3 className="text-primary font-cairo font-bold text-xl mb-3">
+                  <h3 className="text-primary-800 font-cairo font-bold text-xl mb-3">
                     {translatedProduct?.name || product.name}
                   </h3>
-                  <p className="text-black text-sm mb-4 line-clamp-2">
+                  <p className="text-steel-600 text-sm mb-4 line-clamp-2">
                     {translatedProduct?.shortDesc || product.shortDesc}
                   </p>
                   <ul className="space-y-2 mb-4">
                     {(translatedProduct?.specs || product.specs).slice(0, 3).map((spec, idx) => (
-                      <li key={idx} className="text-sm text-black flex items-start gap-2">
-                        <span className="text-primary mt-1">✓</span>
+                      <li key={idx} className="text-sm text-steel-700 flex items-start gap-2">
+                        <span className="text-accent mt-1">✓</span>
                         <span>{spec.label}: {spec.value}</span>
                       </li>
                     ))}

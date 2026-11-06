@@ -6,18 +6,17 @@ export default function BigCTA() {
   const { t } = useLanguage()
   
   return (
-    <section className="py-20">
+    <section className="py-24 md:py-32">
       <div className="container-custom">
-        <div className="relative gradient-primary rounded-3xl p-12 md:p-16 text-center overflow-hidden">
+        <div className="relative section-dark bg-noise rounded-4xl p-12 md:p-20 text-center overflow-hidden ring-1 ring-white/10 shadow-lift">
           {/* Decorative Background Pattern */}
-          <div className="absolute inset-0 opacity-10">
-            <div className="absolute top-0 left-0 w-64 h-64 bg-white rounded-full -translate-x-1/2 -translate-y-1/2"></div>
-            <div className="absolute bottom-0 right-0 w-96 h-96 bg-white rounded-full translate-x-1/3 translate-y-1/3"></div>
-          </div>
+          <div className="absolute inset-0 bg-grid opacity-60"></div>
+          <div className="absolute -top-24 -left-24 w-96 h-96 bg-primary-500/40 rounded-full blur-3xl animate-blob"></div>
+          <div className="absolute -bottom-32 -right-24 w-96 h-96 bg-accent/30 rounded-full blur-3xl animate-blob [animation-delay:4s]"></div>
 
           {/* Content */}
           <div className="relative z-10">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-cairo font-bold text-white mb-6">
+            <h2 className="text-3xl md:text-5xl lg:text-6xl font-cairo font-extrabold text-white mb-6 leading-tight">
               {t('cta.title')}
             </h2>
             <p className="text-white/90 text-lg md:text-xl mb-8 max-w-2xl mx-auto">

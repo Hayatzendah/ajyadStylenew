@@ -88,7 +88,7 @@ export default function ContactForm() {
 
   if (isSubmitted) {
     return (
-      <div className="bg-white rounded-xl p-8 text-center border border-mutedGray">
+      <div className="bg-white rounded-3xl p-8 text-center shadow-lift ring-1 ring-steel-200 animate-scale-in">
         <div className="text-6xl mb-4 text-primary">✓</div>
         <h3 className="text-primary font-cairo font-bold text-2xl mb-2">
           تم إرسال رسالتك بنجاح!
@@ -101,7 +101,7 @@ export default function ContactForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="bg-white rounded-xl p-8 border border-mutedGray">
+    <form onSubmit={handleSubmit} className="bg-white rounded-3xl p-8 shadow-lift ring-1 ring-steel-200">
       <div className="grid md:grid-cols-2 gap-6 mb-6">
         {/* Name */}
         <div>

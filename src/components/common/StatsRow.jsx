@@ -14,12 +14,12 @@ export default function StatsRow() {
       {stats.map((stat, index) => (
         <div
           key={index}
-          className={`bg-white/90 backdrop-blur-sm rounded-lg p-4 md:p-6 text-center border border-mutedGray stats-card-collision stats-card-${index + 1}`}
+          className={`bg-white/80 backdrop-blur-xl rounded-3xl p-4 md:p-6 text-center border border-white shadow-lift ring-1 ring-steel-200/60 hover:ring-primary-300 stats-card-collision stats-card-${index + 1}`}
         >
-          <div className="text-2xl md:text-4xl font-cairo font-bold text-primary mb-2">
+          <div className="text-2xl md:text-4xl font-cairo font-extrabold bg-gradient-to-br from-primary-500 to-primary-900 bg-clip-text text-transparent mb-2">
             {stat.value}
           </div>
-          <div className="text-sm md:text-base text-black">
+          <div className="text-sm md:text-base text-steel-600">
             {stat.label}
           </div>
         </div>

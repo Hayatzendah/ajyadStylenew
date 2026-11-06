@@ -5,7 +5,7 @@ export default function TopBar() {
   const { t } = useLanguage()
   
   return (
-    <div className="bg-primary border-b border-primary/30 py-2 hidden md:block">
+    <div className="bg-steel-950 border-b border-white/10 py-2 hidden md:block">
       <div className="container-custom">
         <div className="flex justify-between items-center text-sm">
           <div className="flex items-center gap-6">

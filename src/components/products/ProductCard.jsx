@@ -10,29 +10,29 @@ export default function ProductCard({ product }) {
   
   return (
     <Link to={`/products/${product.slug}`}>
-      <Card>
-        <div className="relative rounded-lg overflow-hidden mb-4">
+      <Card className="group overflow-hidden">
+        <div className="relative rounded-2xl overflow-hidden mb-4">
           <img
             src={product.image}
             alt={translatedProduct?.name || product.name}
-            className="w-full h-56 object-cover"
+            className="w-full h-56 object-cover transition-transform duration-[900ms] ease-out-expo group-hover:scale-110"
             loading="lazy"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-steel-950/85 via-transparent to-transparent"></div>
         </div>
 
-        <h3 className="text-primary font-cairo font-bold text-2xl mb-3">
+        <h3 className="text-primary-800 font-cairo font-bold text-2xl mb-3">
           {translatedProduct?.name || product.name}
         </h3>
 
-        <p className="text-black mb-4 line-clamp-2">
+        <p className="text-steel-600 mb-4 line-clamp-2">
           {translatedProduct?.shortDesc || product.shortDesc}
         </p>
 
         <ul className="space-y-2 mb-6">
           {(translatedProduct?.specs || product.specs).slice(0, 3).map((spec, idx) => (
-            <li key={idx} className="text-sm text-black flex items-start gap-2">
-              <span className="text-primary mt-1 flex-shrink-0">✓</span>
+            <li key={idx} className="text-sm text-steel-700 flex items-start gap-2">
+              <span className="text-accent mt-1 flex-shrink-0">✓</span>
               <span><strong>{spec.label}:</strong> {spec.value}</span>
             </li>
           ))}
